@@ -48,9 +48,18 @@ class _PlayScreenState extends State<PlayScreen> {
               child: Form(
                 child: Column(
                   children: [
-                    Text("Name : "),
                     TextFormField(
                       controller: nameController,
+                      decoration: InputDecoration(
+                        label: Text("Name"),
+                      ),
+                    ),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.green)),
+                      onPressed: ChangeName,
+                      child: Icon(Icons.edit),
                     ),
                   ],
                 ),
@@ -72,13 +81,6 @@ class _PlayScreenState extends State<PlayScreen> {
                           MaterialStateProperty.all<Color>(Colors.red)),
                   onPressed: decrements,
                   child: Icon(Icons.remove),
-                ),
-                ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.green)),
-                  onPressed: ChangeName,
-                  child: Icon(Icons.edit),
                 ),
               ],
             ),
