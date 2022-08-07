@@ -10,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String name = "My name is StatefulWidget";
-  int age = 0;
+  int age = 20;
   bool lookingGood = true;
   List<String> myDognames = ["LoongG", "New York", "Tokyo", "Hongkong"];
   Map<String, dynamic> user = {
@@ -27,17 +27,29 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text("HomeScreen"),
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () => {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) {
-                  return AboutScreen();
-                },
-              ),
-            )
-          },
-          child: Text("Go to about screen"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Hello $name"),
+            Text("My age $age years old"),
+            Text("My looking good is ${lookingGood ? "yes" : "no"}"),
+            Text("My dog name is ${myDognames[1]}"),
+            // ...myDognames.map((e) => Text(e)).toList(),
+            Text("My friend  name is ${user["name"]}"),
+            Text("She is ${user["married"] ? "married" : "no married"}"),
+            ElevatedButton(
+              onPressed: () => {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return AboutScreen();
+                    },
+                  ),
+                )
+              },
+              child: Text("Go to about screen"),
+            ),
+          ],
         ),
       ),
     );
