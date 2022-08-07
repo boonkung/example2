@@ -66,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 indicatorLayout: PageIndicatorLayout.COLOR,
                 autoplay: false,
                 itemCount: banners.length,
+                scrollDirection: Axis.horizontal,
                 pagination: const SwiperPagination(),
                 control: const SwiperControl(),
               ),
