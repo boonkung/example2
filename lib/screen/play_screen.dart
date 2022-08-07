@@ -23,9 +23,10 @@ class _PlayScreenState extends State<PlayScreen> {
     });
   }
 
-  void ChangeName(String newName) {
+  void ChangeName() {
     setState(() {
-      name = newName;
+      name = nameController.text;
+      nameController.text = "";
     });
   }
 
@@ -76,7 +77,7 @@ class _PlayScreenState extends State<PlayScreen> {
                   style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all<Color>(Colors.green)),
-                  onPressed: () => {ChangeName("God of bin")},
+                  onPressed: ChangeName,
                   child: Icon(Icons.edit),
                 ),
               ],
